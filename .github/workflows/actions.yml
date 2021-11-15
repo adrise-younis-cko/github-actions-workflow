@@ -26,4 +26,4 @@ jobs :
           with: 
             who-to-greet: adrise
         - name: Log Greeting Time
-          run: echo "${{ steps.greet.outputs.time }}"
+          run: echo "${{ steps.greet.outputs.time }}" 
