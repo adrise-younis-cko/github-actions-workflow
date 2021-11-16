@@ -16,7 +16,7 @@ on:
     #   - cron : "0/5 * * * *"
     #   - cron : "0/6 * * * *"
     # push:
-    on: [pull_request]
+   pull_request:
     # pull_request:
       # types: [closed, assigned, opened, reopened]
 
