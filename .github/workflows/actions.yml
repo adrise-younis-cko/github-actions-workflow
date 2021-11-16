@@ -1,23 +1,32 @@
 name: Actions workflow
 
-on :
-    repository_dispatch: 
-      types: [build]
+on:
+    # push:
+    #   branches:
+    #     - main
+    #     - 'feature/*' #matches feature/feature1
+    #     - 'feature/**' #matches feature/branch/name
+    #   tags:
+    #     - v1.*
+    #   paths:
+    #     - '**.js'
+    # repository_dispatch: 
+    #   types: [build]
     # schedule:
     #   - cron : "0/5 * * * *"
     #   - cron : "0/6 * * * *"
-    # push:
-    pull_request:
-      types: [closed, assigned, opened, reopened]
+    push:
+    # pull_request:
+      # types: [closed, assigned, opened, reopened]
 
-jobs :
+jobs:
   run-github-actions:
       runs-on: ubuntu-latest
       steps:
-        - name : payload
-          run : echo ${{ github.event.client_payload.env }}
+        - name: payload
+          run: echo ${{ github.event.client_payload.env }}
         - name: List Files 
-          run : |
+          run: |
             pwd
             ls -a
             echo $GITHUB_SHA
@@ -27,7 +36,7 @@ jobs :
         - name: Checkout
           uses: actions/checkout@v2.4.0
         - name: List Files After Checkout
-          run : |
+          run: |
             pwd
             ls -a
         - name: Simple Js Actions
